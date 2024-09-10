@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 
 export function Product(){
@@ -106,7 +107,7 @@ export function Product(){
 
                                 </td>
                                 <td>
-                                    <button>Edit</button>
+                                    <button><Link to={`/product/edit/${p.productCategoryID}`}>Edit</Link></button>
                                     <button onClick={() =>deleteProduct(p.productCategoryID, p.name)}>Delete</button>
                                 </td>
                             </tr>

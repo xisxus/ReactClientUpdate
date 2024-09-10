@@ -7,6 +7,8 @@ import { Nav } from './layer/Nav'
 import { Home } from './Component/Home'
 import { Product } from './Component/Product'
 import { Create } from './Component/CreateProduct'
+import Edit from './Component/Edit'
+
 
 function App() {
  
@@ -21,6 +23,7 @@ function App() {
           <Route path='/' element= {<Home/>}/>
           <Route path='/product' element= {<Product/>}/>
           <Route path='/product/add' element= {<Create/>}/>
+          <Route path='/product/edit/:id' element={<Edit/>}/>
         </Routes>
 
         <Footer/>
