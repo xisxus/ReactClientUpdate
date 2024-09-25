@@ -16,9 +16,20 @@ const Edit = () => {
         })
         .then(data =>{ 
             setCategory(data);
+            SetProduct();
             
         })
+
+        
+        
     }
+
+    const SetProduct = () => {
+      setCategory(prevCategory => ({
+        ...prevCategory,
+        products: prevCategory.products.map((product) => ({ ...product, productID: 0 })),
+      }));
+    };
 
     useEffect(() => {
         GetProduct();
@@ -100,7 +111,12 @@ const Edit = () => {
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(category),
         })
-          .then((res) => res.json())
+          .then((res) => {
+            res.json()
+            console.log('====================================');
+            console.log(res);
+            console.log('====================================');
+          })
           .then((data) => {
             console.log(data);
             alert("Category created successfully");
@@ -148,6 +164,7 @@ const Edit = () => {
         <>
           <div>
             {JSON.stringify(para.id)}
+            {JSON.stringify(category)}
             <h1>Create Product</h1>
             <form onSubmit={createCategory}>
              
